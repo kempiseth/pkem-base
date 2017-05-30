@@ -30,4 +30,11 @@ class Logic {
         return [];
     }
 
+    /**
+     * @Page: login
+     */
+    public function loginLogic() {
+        return [];
+    }
+
 }

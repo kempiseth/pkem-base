@@ -4,8 +4,6 @@ namespace PKEM\Controller;
 
 class Route {
 
-    const START_PAGE = '/';
-
     protected $routes;
     protected $uri;
     protected $path;
@@ -15,7 +13,7 @@ class Route {
         $this->uri = $_SERVER['REQUEST_URI'];
 
         $parsed = parse_url($this->uri);
-        $this->path = $parsed['path'];
+        $this->path = '/' . trim($parsed['path'], '/');
     }
 
     public function renderPage() {
@@ -23,11 +21,12 @@ class Route {
             $page = new Page($this->routes[$this->path]);
             $page->render();
         } else {
-            $this->routeTo(self::START_PAGE);
+            //self::routeTo(START_PATH);
+            die("Route not found!");
         }
     }
 
-    private function routeTo($location) {
+    static function routeTo($location) {
         header("Location: $location");
         exit;
     }
