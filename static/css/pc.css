@@ -1,0 +1,37 @@
+div.wrapper {
+    padding: 20px;
+}
+header, nav, main, footer {
+    margin: 20px 0;
+}
+div#main-left {
+    padding: 20px 20px 20px 0;
+    float: left;
+    width: 70%;
+}
+form#login {
+    margin: auto;
+    width: 60%;
+}
+div#form > div {
+    padding: 6px 0;
+}
+div#form > div > label {
+    width: 29%;
+}
+div#form > div > input {
+    width: 69%;
+}
+div#main-right {
+    padding: 20px 0 20px 20px;
+    float: right;
+    width: 30%;
+}
+.group:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+section, article, aside {
+    padding: 20px 0;
+}

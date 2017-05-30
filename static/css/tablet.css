@@ -1,0 +1,15 @@
+@media only screen and (max-width: 500px) {
+    div#main-left, div#main-right {
+        width: 100%;
+        padding: 20px 0;
+    }
+    form#login {
+        width: 100%;
+    }
+    div#form > div > label {
+        width: 100%;
+    }
+    div#form > div > input {
+        width: 100%;
+    }
+}

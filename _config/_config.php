@@ -1,4 +1,3 @@
 <?php
 
-const START_PATH = '/';
-const LOGIN_PATH = '/login';
+require_once __DIR__ . '/_const.php';

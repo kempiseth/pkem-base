@@ -1,6 +1,6 @@
 <?php
 
 return [
-    "/" => "start",
-    "/login" => "login",
+    START_PATH => "start",
+    LOGIN_PATH => "login",
 ];

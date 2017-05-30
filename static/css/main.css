@@ -1,0 +1,18 @@
+@import url('pc.css');
+@import url('tablet.css');
+@import url('phone.css');
+
+body, input, select, textarea, button {
+    font-family: 'Nokora', Raleway, sans-serif;
+    border-radius: 0;
+}
+.header {
+    font-family: 'Preahvihear', cursive;
+    font-weight: bolder;
+}
+.special {
+    font-family: 'Dangrek', cursive;
+}
+input[type=text], input[type=password] {
+    padding: 3px 6px;
+}

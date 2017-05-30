@@ -34,7 +34,9 @@ class Logic {
      * @Page: login
      */
     public function loginLogic() {
-        return [];
+        return [
+            'title' => 'Login',
+        ];
     }
 
 }
