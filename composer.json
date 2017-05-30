@@ -1,0 +1,11 @@
+{
+    "name": "piseth-kem/tln",
+    "autoload": {
+        "psr-0": {
+            "": "_src/"
+        }
+    },
+    "config": {
+        "bin-dir": "_bin"
+    }
+}

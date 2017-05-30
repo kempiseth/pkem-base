@@ -20,11 +20,6 @@ handlers:
   static_files: favicon.ico
   upload: favicon.ico
 
-# Serve php scripts.
-- url: /(.+\.php)$
-  script: \1
-  secure: always
-
 - url: /.*
   script: index.php
   secure: always
