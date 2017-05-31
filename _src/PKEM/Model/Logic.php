@@ -34,8 +34,20 @@ class Logic {
      * @Page: login
      */
     public function loginLogic() {
+        $error = '';
+        if ( ! empty($_POST) ) {
+            $user = new User($_POST['username'], $_POST['password']);
+            if ( $user->isValid() ) {
+                Route::routeTo($_SESSION['pathBeforeLogin']);
+            } else {
+                $error = "The Username or Password is not valid.";
+            }
+        }
+
         return [
-            'title' => 'Login',
+            'error' => $error,
+            'title' => 'Log in',
+            'page' => $this->pageName,
         ];
     }
 

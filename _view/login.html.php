@@ -1,38 +1,20 @@
-<!DOCTYPE html>
-<html lang="<?=LANG?>">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="author" content="Piseth Kem">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<?php
 
-        <title><?=SITE_NAME.' - '.$title?></title>
-        <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
-        <link href="/static/css/app.css" rel="stylesheet">
-        <link href="/static/css/main.css" rel="stylesheet">
-    </head>
-    <body>
-        <div class="wrapper">
-            <header>
-            </header>
-            <nav>
-            </nav>
-            <main class="group">
-                <div id="main-left">
-                    <section>
-                    </section>
-                    <article>
-                    </article>
-                </div>
-                <div id="main-right">
-                    <aside>
-                    </aside>
-                </div>
-            </main>
-            <footer>
-            </footer>
-        </div>
+$section = <<<"SECTION"
+<form id="login" method="post">
+    <div class="error">$error</div>
+    <div>
+        <label for="username">Username</label>
+        <input type="text" class="_input" id="username" name="username" placeholder="Username" autofocus>
+    </div>
+    <div>
+        <label for="password">Password</label>
+        <input type="password" class="_input" id="password" name="password" placeholder="Password">
+    </div>
+    <div>
+        <button type="submit">Log in</button>
+    </div>
+</form>
+SECTION;
 
-        <script src="/static/js/app.js"></script>
-    </body>
-</html>
+require __DIR__ . '/_base_/_base_.html.php';

@@ -3,16 +3,10 @@
 @import url('phone.css');
 
 body, input, select, textarea, button {
-    font-family: 'Nokora', Raleway, sans-serif;
+    font-family: Raleway, sans-serif;
     border-radius: 0;
 }
-.header {
-    font-family: 'Preahvihear', cursive;
-    font-weight: bolder;
-}
-.special {
-    font-family: 'Dangrek', cursive;
-}
-input[type=text], input[type=password] {
+input._input{
     padding: 3px 6px;
+    border: solid 1px #EEE;
 }

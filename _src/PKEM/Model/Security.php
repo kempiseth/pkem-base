@@ -20,8 +20,9 @@ class Security {
                 $this->user = $this->getUser();
             }
         } else {
-            if ( ! self::isInLoginPage() )
+            if ( ! self::isInLoginPage() ) {
                 $this->login();
+            }
         }
     }
 
