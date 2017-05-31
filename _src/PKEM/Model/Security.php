@@ -7,7 +7,6 @@ use PKEM\Controller\Route;
 class Security {
 
     protected $isLoggedIn = false;
-    protected $user;
 
     function __construct() {
         session_start() || die('Failed to start session.');
@@ -16,8 +15,6 @@ class Security {
         if ($this->isLoggedIn) {
             if ( self::isInLoginPage() ) {
                 Route::routeTo(START_PATH);
-            } else {
-                $this->user = $this->getUser();
             }
         } else {
             if ( ! self::isInLoginPage() ) {

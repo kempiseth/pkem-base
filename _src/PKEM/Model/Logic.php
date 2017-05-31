@@ -2,6 +2,8 @@
 
 namespace PKEM\Model;
 
+use PKEM\Controller\Route;
+
 class Logic {
 
     const METHOD_SUFFIX = 'Logic';
@@ -27,7 +29,10 @@ class Logic {
      * @Page: start
      */
     public function startLogic() {
-        return [];
+        return [
+            'title' => 'Start',
+            'page' => $this->pageName,
+        ];
     }
 
     /**
@@ -38,7 +43,8 @@ class Logic {
         if ( ! empty($_POST) ) {
             $user = new User($_POST['username'], $_POST['password']);
             if ( $user->isValid() ) {
-                Route::routeTo($_SESSION['pathBeforeLogin']);
+                $_SESSION['userid'] = $user->getId();
+                Route::routeTo(START_PATH);
             } else {
                 $error = "The Username or Password is not valid.";
             }
