@@ -1,3 +1,8 @@
 <?php
 
-const SQLITE_PATH = __DIR__ . '/db.sqlite3';
+$_mysql = [
+    'host' => 'localhost',
+    'dbname' => 'tln',
+    'user' => 'tln',
+    'pass' => 'Ad3!N'
+];

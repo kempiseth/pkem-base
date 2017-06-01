@@ -19,10 +19,14 @@ class User {
         $this->username = $username;
         $this->password = $password;
 
-        //$this->checkTable();
-        //$this->checkAdminUser();
+        $this->initialize();
     }
 
+    private function initialize() {
+        $this->checkTable();
+        $this->checkRecords();
+    }
+    
     public function getId() {
         if ( ! $this->id ) {
             $db = new DB();
@@ -38,19 +42,19 @@ class User {
     private function checkTable() {
         $db = new DB();
         $sql = "CREATE TABLE IF NOT EXISTS " . self::TABLE_NAME . " (
-            id INTEGER PRIMARY KEY,
-            username TEXT,
-            password TEXT,
-            roles TEXT,
-            date TEXT)";
+            `id` INT AUTO_INCREMENT PRIMARY KEY,
+            username VARCHAR(64) NOT NULL UNIQUE,
+            password VARCHAR(128) NOT NULL,
+            roles VARCHAR(64) NOT NULL,
+            `date` DATE)";
         $db->dbh->exec($sql);
     }
 
-    private function checkAdminUser() {
+    private function checkRecords() {
         if ( ! $this->hasUser(self::ADMIN_USER) ) {
             $db = new DB();
-            $sql = "INSERT INTO ".self::TABLE_NAME." (username, password, roles, date)
-                VALUES(:username, :password, :roles, date('now'))";
+            $sql = "INSERT INTO ".self::TABLE_NAME." (username, password, roles, `date`)
+                VALUES(:username, :password, :roles, CURDATE())";
             $stmt = $db->dbh->prepare($sql);
             $stmt->bindValue(':username', self::ADMIN_USER);
             $stmt->bindValue(':password', $this->hashPassword(self::ADMIN_PASS));
@@ -69,7 +73,8 @@ class User {
 
     private function isPasswordValid() {
         $db = new DB();
-        $sql = "SELECT COUNT(*) FROM ".self::TABLE_NAME." WHERE username='{$this->username}' AND password='{$this->hashPassword($this->password)}'";
+        $sql = "SELECT COUNT(*) FROM ".self::TABLE_NAME." WHERE username='{$this->username}' 
+            AND password='{$this->hashPassword($this->password)}'";
         return ($result = $db->dbh->query($sql)) && ($result->fetchColumn() > 0);
     }
 
