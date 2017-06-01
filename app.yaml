@@ -27,6 +27,9 @@ handlers:
 # [START env_vars]
 env_variables:
   GCS_BUCKET_NAME: "tln-construction.appspot.com"
+  MYSQL_DSN: mysql:unix_socket=/cloudsql/tln-construction:asia-east1:tln-construction;dbname=tln
+  MYSQL_USER: tln
+  MYSQL_PASSWORD: 'Ad3!N'
 # [END env_vars]
 
 skip_files:
@@ -35,4 +38,5 @@ skip_files:
   - ^(.*/)?.*\.py[co]$
   - ^(.*/)?.*/RCS/.*$
   - ^(.*/)?\..*$
-  - ^.git\/(.*)
+  - ^\.git\/(.*)
+  - ^\.local$

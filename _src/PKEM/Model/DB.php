@@ -19,7 +19,12 @@ class DB {
 
     function __construct() {
         global $_mysql;
-        $this->DSN = "mysql:host={$_mysql['host']};dbname={$_mysql['dbname']};charset=utf8mb4";
+
+        if ( file_exists($_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . '.local') ) {
+            $this->DSN = "mysql:host={$_mysql['host']};dbname={$_mysql['dbname']};charset=utf8mb4";
+        } else {
+            $this->DSN = GAE_DSN;
+        }
         $this->user = $_mysql['user'];
         $this->pass = $_mysql['pass'];
 
