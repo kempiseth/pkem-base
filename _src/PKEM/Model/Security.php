@@ -3,16 +3,22 @@
 namespace PKEM\Model;
 
 use PKEM\Controller\Route;
+use \PDO;
 
 class Security {
 
-    protected $isLoggedIn = false;
+    protected $isLoggedIn;
+    protected $userid;
 
     function __construct() {
         session_start() || die('Failed to start session.');
         $this->isLoggedIn = $this->isLoggedIn();
 
         if ($this->isLoggedIn) {
+            $this->userid = $_SESSION['userid'];
+            if ( ! isset($_SESSION['user']) )
+                $_SESSION['user'] = $this->getUser();
+
             if ( self::isInLoginPage() ) {
                 Route::routeTo(START_PATH);
             }
@@ -21,6 +27,18 @@ class Security {
                 $this->login();
             }
         }
+    }
+
+    private function getUser() {
+        $user = new User();
+        $dbh = (new DB())->dbh;
+        $sql = "SELECT * FROM ".User::TABLE_NAME." WHERE id=:id";
+        $stmt = $dbh->prepare($sql);
+        $stmt->setFetchMode(PDO::FETCH_INTO, $user);
+        $stmt->execute(array(':id' => $this->userid));
+    
+        $stmt->fetch();
+        return $user;
     }
 
     private function isLoggedIn() {

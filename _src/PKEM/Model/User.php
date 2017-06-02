@@ -9,13 +9,13 @@ class User {
     const ADMIN_USER = "admin";
     const ADMIN_PASS = "Ad3!N";
 
-    protected $id = false;
-    protected $username;
-    protected $password;
-    protected $roles = [];
-    protected $date;
+    public $id = false;
+    public $username;
+    public $password;
+    public $roles = [];
+    public $date;
 
-    function __construct($username, $password) {
+    function __construct($username=null, $password=null) {
         $this->username = $username;
         $this->password = $password;
 
@@ -23,8 +23,8 @@ class User {
     }
 
     private function initialize() {
-        $this->checkTable();
-        $this->checkRecords();
+//        $this->checkTable();
+//        $this->checkRecords();
     }
     
     public function getId() {

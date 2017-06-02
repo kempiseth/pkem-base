@@ -15,11 +15,12 @@
         <div class="wrapper">
             <header>
             </header>
-            <nav>
+            <nav id="nav-main">
+                <?= @$nav ?>
             </nav>
             <main class="group">
                 <div id="main-left">
-                    <section>
+                    <section id="section-main">
                         <?= @$section ?>
                     </section>
                     <article>

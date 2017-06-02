@@ -4,6 +4,10 @@ div.wrapper {
 header, nav, main, footer {
     margin: 20px 0;
 }
+nav a {
+    margin: 0 15px;
+    white-space: nowrap;
+}
 div#main-left {
     padding: 20px 20px 20px 0;
     float: left;

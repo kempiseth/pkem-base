@@ -2,6 +2,8 @@
 
 namespace PKEM\View;
 
+use PKEM\Model\User;
+
 class View {
 
     const VIEW_SUFFIX = '.html.php';
@@ -19,6 +21,8 @@ class View {
 
     public function createView() {
         extract($this->logicData);
+        $isAdmin = isset($_SESSION['user']) ? 
+            ($_SESSION['user']->username == User::ADMIN_USER) : false;
         require $this->viewRoot . $this->pageName . self::VIEW_SUFFIX;
     }
 
