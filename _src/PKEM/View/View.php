@@ -21,8 +21,10 @@ class View {
 
     public function createView() {
         extract($this->logicData);
+        // Comman data for all pages:
         $isAdmin = isset($_SESSION['user']) ? 
             ($_SESSION['user']->username == User::ADMIN_USER) : false;
+
         require $this->viewRoot . $this->pageName . self::VIEW_SUFFIX;
     }
 

@@ -36,5 +36,6 @@
         </div>
 
         <script src="/static/js/app.js"></script>
+        <?= @$js ?>
     </body>
 </html>

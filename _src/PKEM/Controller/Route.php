@@ -19,11 +19,10 @@ class Route {
     public function renderPage() {
         if (array_key_exists($this->path, $this->routes)) {
             $page = new Page($this->routes[$this->path]);
-            $page->render();
         } else {
-            //self::routeTo(START_PATH);
-            die("Route not found!");
+            $page = new Page();
         }
+        $page->render();
     }
 
     static function routeTo($location) {

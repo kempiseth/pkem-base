@@ -36,6 +36,26 @@ class Logic {
     }
 
     /**
+     * @Page: notFound
+     */
+    public function notFoundLogic() {
+        return [
+            'title' => 'Not Found',
+            'page' => $this->pageName,
+        ];
+    }
+
+    /**
+     * @Page: manageSystem
+     */
+    public function manageSystemLogic() {
+        return [
+            'title' => 'Manage System',
+            'page' => $this->pageName,
+        ];
+    }
+
+    /**
      * @Page: login
      */
     public function loginLogic() {
