@@ -49,9 +49,16 @@ class Logic {
      * @Page: manageSystem
      */
     public function manageSystemLogic() {
+        $dbh = (new DB())->dbh;
+        $sql = "SELECT * FROM ".User::TABLE_NAME;
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute();
+        $users = $stmt->fetchAll(\PDO::FETCH_OBJ);
+
         return [
             'title' => 'Manage System',
             'page' => $this->pageName,
+            'users' => $users,
         ];
     }
 

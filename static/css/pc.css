@@ -56,3 +56,6 @@ div.task div.content {
     padding: 20px 0 0 20px;
     background-color: azure;
 }
+table {
+    width: 100%;
+}

@@ -26,7 +26,7 @@ class User {
 //        $this->checkTable();
 //        $this->checkRecords();
     }
-    
+
     public function getId() {
         if ( ! $this->id ) {
             $db = new DB();
