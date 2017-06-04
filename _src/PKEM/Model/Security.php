@@ -38,6 +38,7 @@ class Security {
         $stmt->execute(array(':id' => $this->userid));
     
         $stmt->fetch();
+        $user->roles = json_decode($user->roles);
         return $user;
     }
 

@@ -8,9 +8,31 @@ foreach ($users as $user) {
     <td>{$user->date}</td>
 </tr>";
 }
-$usersTable = "<table>
-    $usersRows
-</table>";
+
+$usersTable = "<table id='select-user'>$usersRows</table>";
+$insertForm = ($_SESSION['user'])->canInsert() ? 
+"<form name='insert-form' method='post' autocomplete='off'>
+<fieldset><legend>Add a new system user</legend>
+<table id='insert-user'>
+<tr>
+    <td><label for='username'>Username</label></td>
+    <td><input type='text' id='username' name='username' class='_input' required autofocus/></td>
+</tr>
+<tr>
+    <td><label for='password'>Password</label></td>
+    <td><input type='password' id='password' name='password' class='_input' required autocomplete='new-password'/></td>
+</tr>
+<tr>
+    <td colspan='2' id='roles'>
+        <input type='hidden' name='roles[]' value='select'>
+        <label><input type='checkbox' name='roles[]' value='select' checked disabled> Select</label>
+        <label><input type='checkbox' name='roles[]' value='insert'> Insert</label>
+        <label><input type='checkbox' name='roles[]' value='update'> Update</label>
+        <label><input type='checkbox' name='roles[]' value='delete'> Delete</label>
+    </td>
+</tr>
+<tr><td colspan='2'><button type='submit'>Add user</button></td></tr>
+</table></fieldset></form>" : '';
 
 $nav = <<<"NAV"
 <a href="/human-resource/">Human Resource</a>
@@ -18,9 +40,10 @@ NAV;
 
 $section = <<<"SECTION"
 <div id="user" class="task">
-    <div class="title">User</div>
+    <div class="title">Users</div>
     <div class="content">
         $usersTable
+        $insertForm
     </div>
 </div>
 SECTION;

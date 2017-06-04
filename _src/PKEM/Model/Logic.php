@@ -49,6 +49,13 @@ class Logic {
      * @Page: manageSystem
      */
     public function manageSystemLogic() {
+        // Insert a new user:
+        if (isset($_POST['username'])) {
+            $user = new User($_POST['username'], $_POST['password'], $_POST['roles']);
+            $user->insertIntoDB();
+        }
+
+        // Users' list:
         $dbh = (new DB())->dbh;
         $sql = "SELECT * FROM ".User::TABLE_NAME;
         $stmt = $dbh->prepare($sql);

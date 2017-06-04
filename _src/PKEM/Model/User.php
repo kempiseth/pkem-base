@@ -15,9 +15,10 @@ class User {
     public $roles = [];
     public $date;
 
-    function __construct($username=null, $password=null) {
+    function __construct($username=null, $password=null, $roles=[]) {
         $this->username = $username;
         $this->password = $password;
+        $this->roles = is_string($roles) ? json_decode($roles) : $roles;
 
         $this->initialize();
     }
@@ -50,12 +51,23 @@ class User {
         $db->dbh->exec($sql);
     }
 
+    public function insertIntoDB() {
+        $dbh = (new DB())->dbh;
+        $sql = "INSERT INTO ".self::TABLE_NAME." (username, password, roles, `date`)
+            VALUES(:username, :password, :roles, CURDATE())";
+        $stmt = $dbh->prepare($sql);
+        $stmt->bindValue(':username', $this->username);
+        $stmt->bindValue(':password', $this->hashPassword($this->password));
+        $stmt->bindValue(':roles', json_encode($this->roles));
+        $stmt->execute();
+    }
+
     private function checkRecords() {
         if ( ! $this->hasUser(self::ADMIN_USER) ) {
-            $db = new DB();
-            $sql = "INSERT INTO ".self::TABLE_NAME." (username, password, roles, `date`)
+            $dbh = (new DB())->dbh;
+            $sql = "REPLACE INTO ".self::TABLE_NAME." (username, password, roles, `date`)
                 VALUES(:username, :password, :roles, CURDATE())";
-            $stmt = $db->dbh->prepare($sql);
+            $stmt = $dbh->prepare($sql);
             $stmt->bindValue(':username', self::ADMIN_USER);
             $stmt->bindValue(':password', $this->hashPassword(self::ADMIN_PASS));
             $stmt->bindValue(':roles', json_encode(['select','insert','update','delete']));
@@ -86,6 +98,10 @@ class User {
         $db = new DB();
         $sql = "SELECT COUNT(*) FROM " . self::TABLE_NAME . " WHERE username='$username'";
         return ($result = $db->dbh->query($sql)) && ($result->fetchColumn() > 0);
+    }
+
+    public function canInsert() {
+        return in_array('insert', $this->roles);
     }
 
 }
