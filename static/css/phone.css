@@ -5,7 +5,13 @@
     table#insert-user td#roles label {
         width: 48%;
     }
-    div.task div.content {
-        padding: 10px 0 0 10px;
+    nav a {
+        display: block;
+        padding: 8px;
+        border-right: none;
+        border-bottom: 1px dotted #DDD;
+    }
+    nav a:hover {
+        background-color: #FBFBFB;
     }
 }

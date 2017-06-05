@@ -8,8 +8,9 @@ body, input, select, textarea, button {
 }
 input._input {
     padding: 3px 6px;
-    border: solid 1px #EEE;
+    border: solid 1px #DDD;
 }
 a:hover {
     color: indianred;
+    text-decoration: none;
 }

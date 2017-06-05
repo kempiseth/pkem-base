@@ -80,7 +80,7 @@ class Logic {
                 $_SESSION['userid'] = $user->getId();
                 Route::routeTo(START_PATH);
             } else {
-                $error = "The Username or Password is not valid.";
+                $error = "&rarr; Username or Password is not correct.";
             }
         }
 

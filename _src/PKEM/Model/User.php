@@ -63,7 +63,7 @@ class User {
             $stmt->bindValue(':roles', json_encode($this->roles));
             $stmt->execute();
         } else {
-            $msg = "User already exists.";
+            $msg = "&rarr; User already exists.";
         }
     }
 

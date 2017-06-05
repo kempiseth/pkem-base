@@ -1,7 +1,7 @@
 <?php
 
 $manageSystem = $isAdmin ?
-    '| <a href="/manage-system/">Manage System</a>' : '';
+    '<a href="/manage-system/">Manage System</a>' : '';
 
 $nav = <<<"NAV"
 <a href="/human-resource/">Human Resource</a>

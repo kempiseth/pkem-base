@@ -5,11 +5,11 @@ $section = <<<"SECTION"
     <div class="error">$error</div>
     <div>
         <label for="username">Username</label>
-        <input type="text" class="_input" id="username" name="username" placeholder="Username" autofocus>
+        <input type="text" class="_input" id="username" name="username" placeholder="Username" required autofocus>
     </div>
     <div>
         <label for="password">Password</label>
-        <input type="password" class="_input" id="password" name="password" placeholder="Password">
+        <input type="password" class="_input" id="password" name="password" placeholder="Password" required>
     </div>
     <div>
         <button type="submit">Log in</button>

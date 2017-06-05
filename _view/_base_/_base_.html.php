@@ -17,7 +17,9 @@
             </header>
             <nav id="nav-main">
                 <?= @$nav ?>
-                <?php if(isset($_SESSION['userid'])): ?>| <a id="logout" href="/logout">Log out</a><?php endif; ?>
+                <?php if(isset($_SESSION['userid'])): ?>
+                    <a id="logout" href="/logout">Log out</a>
+                <?php endif; ?>
             </nav>
             <main class="group">
                 <div id="main-left">
