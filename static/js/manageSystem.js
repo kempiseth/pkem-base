@@ -2,8 +2,10 @@ function delete_user(userid){
     $.post({
         url: '',
         data: {_ajax: 'deleteUser', userid: userid},
-        success: function(){
-            $('tr[userid="'+userid+'"]').remove();
+        success: function(result){
+            if ($.trim(result)=='OK') {
+                $('tr[userid="'+userid+'"]').remove();
+            }
         },
     });
 }

@@ -5,6 +5,9 @@
     table#insert-user td#roles label {
         width: 48%;
     }
+    nav {
+        display: none;
+    }
     nav a {
         display: block;
         padding: 8px;
@@ -13,5 +16,11 @@
     }
     nav a:hover {
         background-color: #FBFBFB;
+    }
+    span.menu-icon {
+        display: block;
+        float: right;
+        padding: 10px;
+        cursor: pointer;
     }
 }
