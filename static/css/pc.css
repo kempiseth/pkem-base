@@ -4,6 +4,11 @@ div.wrapper {
 header, nav, main, footer {
     margin: 20px 0;
 }
+div.msg{
+    background-color: indianred;
+    color: white;
+    padding-left: 5px;
+}
 nav a {
     margin: 0 15px;
     white-space: nowrap;
@@ -59,6 +64,9 @@ table {
     width: 100%;
     margin-bottom: 20px;
 }
+table.list tr:hover {
+    background-color: beige;
+}
 table tr td {
     padding: 8px 0;
 }
@@ -71,4 +79,8 @@ table#insert-user td#roles label {
 }
 table#select-user tr {
     border-bottom: 1px solid #EEE;
+}
+img.icon {
+    width: 20px;
+    cursor: pointer;
 }

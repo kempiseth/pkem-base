@@ -1,26 +1,29 @@
 <?php
 
+global $msg;
+
 $usersRows = '';
 foreach ($users as $user) {
-    $usersRows .= "<tr id='{$user->id}'>
+    $usersRows .= "<tr userid='{$user->id}'>
     <td>{$user->username}</td>
     <td>{$user->roles}</td>
     <td>{$user->date}</td>
+    <td><img class='icon' action='delete' src='/static/image/delete.jpg'></td>
 </tr>";
 }
 
-$usersTable = "<table id='select-user'>$usersRows</table>";
-$insertForm = ($_SESSION['user'])->canInsert() ? 
+$usersTable = "<table class='list' id='select-user'>$usersRows</table>";
+$insertForm = $_SESSION['user']->canInsert() ? 
 "<form name='insert-form' method='post' autocomplete='off'>
 <fieldset><legend>Add a new system user</legend>
 <table id='insert-user'>
 <tr>
     <td><label for='username'>Username</label></td>
-    <td><input type='text' id='username' name='username' class='_input' required autofocus/></td>
+    <td><input type='text' id='username' name='username' class='_input' required></td>
 </tr>
 <tr>
     <td><label for='password'>Password</label></td>
-    <td><input type='password' id='password' name='password' class='_input' required autocomplete='new-password'/></td>
+    <td><input type='password' id='password' name='password' class='_input' required autocomplete='new-password'></td>
 </tr>
 <tr>
     <td colspan='2' id='roles'>

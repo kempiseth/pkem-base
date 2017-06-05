@@ -52,20 +52,25 @@ class User {
     }
 
     public function insertIntoDB() {
-        $dbh = (new DB())->dbh;
-        $sql = "INSERT INTO ".self::TABLE_NAME." (username, password, roles, `date`)
-            VALUES(:username, :password, :roles, CURDATE())";
-        $stmt = $dbh->prepare($sql);
-        $stmt->bindValue(':username', $this->username);
-        $stmt->bindValue(':password', $this->hashPassword($this->password));
-        $stmt->bindValue(':roles', json_encode($this->roles));
-        $stmt->execute();
+        global $msg;
+        if ( ! $this->hasUser($this->username) ) {
+            $dbh = (new DB())->dbh;
+            $sql = "INSERT INTO ".self::TABLE_NAME." (username, password, roles, `date`)
+                VALUES(:username, :password, :roles, CURDATE())";
+            $stmt = $dbh->prepare($sql);
+            $stmt->bindValue(':username', $this->username);
+            $stmt->bindValue(':password', $this->hashPassword($this->password));
+            $stmt->bindValue(':roles', json_encode($this->roles));
+            $stmt->execute();
+        } else {
+            $msg = "User already exists.";
+        }
     }
 
     private function checkRecords() {
         if ( ! $this->hasUser(self::ADMIN_USER) ) {
             $dbh = (new DB())->dbh;
-            $sql = "REPLACE INTO ".self::TABLE_NAME." (username, password, roles, `date`)
+            $sql = "INSERT INTO ".self::TABLE_NAME." (username, password, roles, `date`)
                 VALUES(:username, :password, :roles, CURDATE())";
             $stmt = $dbh->prepare($sql);
             $stmt->bindValue(':username', self::ADMIN_USER);
