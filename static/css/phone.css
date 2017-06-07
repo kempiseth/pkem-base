@@ -2,6 +2,10 @@
     table tr td {
         display: block;
     }
+    table#select-user td.action {
+        float: right;
+        padding: 12px;
+    }
     table#insert-user td#roles label {
         width: 48%;
     }

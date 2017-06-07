@@ -11,7 +11,7 @@ foreach ($users as $user) {
     <td>{$user->username}</td>
     <td>{$user->roles}</td>
     <td>{$user->date}</td>
-    <td>$deleteIcon</td>
+    <td class='action'>$deleteIcon</td>
 </tr>";
 }
 

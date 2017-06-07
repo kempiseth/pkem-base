@@ -39,6 +39,7 @@ class Logic {
      * @Page: notFound
      */
     public function notFoundLogic() {
+        $_SESSION['message'] = "This page is not implemented yet!";
         return [
             'title' => 'Not Found',
             'page' => $this->pageName,
@@ -73,19 +74,17 @@ class Logic {
      * @Page: login
      */
     public function loginLogic() {
-        $error = '';
         if ( ! empty($_POST) ) {
             $user = new User($_POST['username'], $_POST['password']);
             if ( $user->isValid() ) {
                 $_SESSION['userid'] = $user->getId();
                 Route::routeTo(START_PATH);
             } else {
-                $error = "&rarr; Username or Password is not correct.";
+                $_SESSION['message'] = "Username or Password is not correct.";
             }
         }
 
         return [
-            'error' => $error,
             'title' => 'Log in',
             'page' => $this->pageName,
         ];

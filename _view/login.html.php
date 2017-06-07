@@ -2,7 +2,6 @@
 
 $section = <<<"SECTION"
 <form id="login" method="post">
-    <div class="error">$error</div>
     <div>
         <label for="username">Username</label>
         <input type="text" class="_input" id="username" name="username" placeholder="Username" required autofocus>

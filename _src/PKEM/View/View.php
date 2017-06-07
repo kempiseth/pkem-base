@@ -25,6 +25,8 @@ class View {
 
         // Get the page to be displayed:
         require $this->viewRoot . $this->pageName . self::VIEW_SUFFIX;
+        // Clear some view's session values:
+        $_SESSION['message'] = '';
     }
 
 }
