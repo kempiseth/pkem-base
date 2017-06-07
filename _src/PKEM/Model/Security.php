@@ -47,7 +47,8 @@ class Security {
     }
 
     private function login() {
-        Route::routeTo(LOGIN_PATH);
+        if ( ! isset($_POST['_ajax']) )
+            Route::routeTo(LOGIN_PATH);
     }
 
     static function isInLoginPage() {

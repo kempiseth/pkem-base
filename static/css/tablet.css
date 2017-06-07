@@ -3,6 +3,10 @@
         width: 100%;
         padding: 20px 0;
     }
+    div#copyright {
+        margin-left: 0;
+        text-align: center;
+    }
     form#login {
         width: 100%;
     }

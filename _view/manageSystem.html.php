@@ -1,14 +1,17 @@
 <?php
 
 global $msg;
+use PKEM\Model\User;
 
 $usersRows = '';
 foreach ($users as $user) {
+    $deleteIcon = ($user->username == User::ADMIN_USER) ? 
+        '' : "<img class='icon' action='delete' src='/static/image/delete.jpg'>";
     $usersRows .= "<tr userid='{$user->id}'>
     <td>{$user->username}</td>
     <td>{$user->roles}</td>
     <td>{$user->date}</td>
-    <td><img class='icon' action='delete' src='/static/image/delete.jpg'></td>
+    <td>$deleteIcon</td>
 </tr>";
 }
 
