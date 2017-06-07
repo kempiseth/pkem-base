@@ -23,7 +23,7 @@ class View {
         extract($this->logicData);
         // Comman data for all pages:
         $isAdmin = isset($_SESSION['user']) ? 
-            ($_SESSION['user']->username == User::ADMIN_USER) : false;
+            ( count($_SESSION['user']->roles) > 2 ) : false;
 
         require $this->viewRoot . $this->pageName . self::VIEW_SUFFIX;
     }

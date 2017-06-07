@@ -18,4 +18,8 @@ class Background {
         Route::routeTo(LOGIN_PATH);
     }
 
+    private function deleteUser() {
+        //TODO
+        print_r($_POST);
+    }
 }

@@ -5,7 +5,8 @@ use PKEM\Model\User;
 
 $usersRows = '';
 foreach ($users as $user) {
-    $deleteIcon = ($user->username == User::ADMIN_USER) ? 
+    $deleteIcon = ($user->username == User::ADMIN_USER || 
+        $user->username == $_SESSION['user']->username) ? 
         '' : "<img class='icon' action='delete' src='/static/image/delete.jpg'>";
     $usersRows .= "<tr userid='{$user->id}'>
     <td>{$user->username}</td>
