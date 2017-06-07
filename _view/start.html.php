@@ -1,6 +1,6 @@
 <?php
 
-$manageSystem = $isAdmin ?
+$manageSystem = $_SESSION['isSuperUser'] ?
     '<a href="/manage-system/">Manage System</a>' : '';
 
 $nav = <<<"NAV"

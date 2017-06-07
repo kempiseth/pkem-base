@@ -26,7 +26,7 @@
             <main class="group">
                 <div id="main-left">
                     <section id="section-main">
-                        <div class="msg"><?= @$msg ?></div>
+                        <div class="message"><?= @$_SESSION['message'] ?></div>
                         <?= @$section ?>
                     </section>
                     <article>

@@ -1,6 +1,5 @@
 <?php
 
-global $msg;
 use PKEM\Model\User;
 
 $usersRows = '';

@@ -22,9 +22,8 @@ class View {
     public function createView() {
         extract($this->logicData);
         // Comman data for all pages:
-        $isAdmin = isset($_SESSION['user']) ? 
-            ( count($_SESSION['user']->roles) > 2 ) : false;
 
+        // Get the page to be displayed:
         require $this->viewRoot . $this->pageName . self::VIEW_SUFFIX;
     }
 

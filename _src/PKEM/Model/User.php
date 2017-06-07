@@ -52,7 +52,6 @@ class User {
     }
 
     public function insertIntoDB() {
-        global $msg;
         if ( ! $this->hasUser($this->username) ) {
             $dbh = (new DB())->dbh;
             $sql = "INSERT INTO ".self::TABLE_NAME." (username, password, roles, `date`)
@@ -63,7 +62,7 @@ class User {
             $stmt->bindValue(':roles', json_encode($this->roles));
             $stmt->execute();
         } else {
-            $msg = "&rarr; User already exists.";
+            $_SESSION['message'] = "&rarr; User already exists.";
         }
     }
 
