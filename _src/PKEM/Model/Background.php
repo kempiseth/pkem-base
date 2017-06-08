@@ -19,7 +19,11 @@ class Background {
     }
 
     private function deleteUser() {
-        //TODO
-        print_r($_POST);
+        $dbh = (new DB())->dbh;
+        $sql = "DELETE FROM ".User::TABLE_NAME." WHERE id=:id";
+        $stmt = $dbh->prepare($sql);
+        $stmt->bindValue(':id', $_POST['userid']);
+        $_return = $stmt->execute();
+        echo $_return ? 'OK' : 'FAILED';
     }
 }
