@@ -15,7 +15,7 @@ a:hover {
     text-decoration: none;
 }
 legend {
-    font-size: 18px;
+    font-size: 17px;
 }
 body[page="login"] nav a {
     display: none;

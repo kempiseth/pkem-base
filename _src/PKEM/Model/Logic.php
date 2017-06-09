@@ -71,7 +71,7 @@ class Logic {
      * @Page: login
      */
     public function login() {
-        if ( ! empty($_POST) ) {
+        if ( isset($_POST['username']) ) {
             $user = new User($_POST['username'], $_POST['password']);
             if ( $user->isValid() ) {
                 $_SESSION['userid'] = $user->getId();
@@ -91,6 +91,21 @@ class Logic {
      * @Page: account
      */
     public function account() {
+        if ( isset($_POST['password']) ) {
+            if ($_POST['password'] == $_POST['confirm-password']) {
+                //Update Password:
+                $dbh = (new DB())->dbh;
+                $sql = "UPDATE ".User::TABLE_NAME." SET password=:password WHERE id=:id";
+                $stmt = $dbh->prepare($sql);
+                $stmt->bindValue(':password', User::hashPassword($_POST['password']));
+                $stmt->bindValue(':id', $_SESSION['userid']);
+                $stmt->execute();
+                Route::routeTo(LOGOUT_PATH);
+            } else {
+                $_SESSION['message'] = "Passwords entered do not match.";
+            }
+        }
+
         return [
             'title' => 'Account',
             'page' => $this->pageName,

@@ -6,7 +6,7 @@
         float: right;
         padding: 12px;
     }
-    table#insert-user td#roles label {
+    table td#roles label {
         width: 48%;
     }
     nav {
@@ -27,4 +27,9 @@
         padding: 10px;
         cursor: pointer;
     }
+    table input[type='text'],
+    table input[type='password'] {
+        width: 98%;
+    }
+
 }

@@ -16,4 +16,8 @@
     form > div > input {
         width: 100%;
     }
+    table input[type='text'],
+    table input[type='password'] {
+        width: 90%;
+    }
 }

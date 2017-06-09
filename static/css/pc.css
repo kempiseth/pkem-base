@@ -71,11 +71,11 @@ table.list tr:hover {
 table tr td {
     padding: 5px 8px;
 }
-table#insert-user input[type='text'],
-table#insert-user input[type='password'] {
-    width: 95%;
+table input[type='text'],
+table input[type='password'] {
+    width: 80%;
 }
-table#insert-user td#roles label {
+table td#roles label {
     width: 23%;
 }
 table#select-user tr {
