@@ -17,9 +17,21 @@
                 <span class="menu-icon"> &#9776; Menu </span>
             </header>
             <nav id="nav-main">
+                <!-- Shown on all pages -->
                 <a href="/">Home</a>
+                <a href="/human-resource">Human Resource</a>
+
+                <!-- Page specific navs -->
                 <?= @$nav ?>
+
+                <!-- Shown on system pages -->
+                <?php if(@$_SESSION['isSuperUser']): ?>
+                    <a href="/manage-system">Manage System</a>
+                <?php endif; ?>
+
+                <!-- Account related navs -->
                 <?php if(isset($_SESSION['userid'])): ?>
+                    <a id="account" href="/account">Account</a>
                     <a id="logout" href="/logout">Log out</a>
                 <?php endif; ?>
             </nav>
@@ -46,11 +58,16 @@
 
         <script src="/static/js/app.js"></script>
         <script>
+            var _width = $(window).width();
+
             $('header span.menu-icon').click(function(){
                 $('nav#nav-main').toggle('slow');
             });
-            $( window ).resize(function() {
-                $('nav#nav-main').toggle($('header span.menu-icon').is(':hidden'));
+            $( window ).on('resize', function() {
+                if ( _width != $(this).width() ) {
+                    $('nav#nav-main').toggle($('header span.menu-icon').is(':hidden'));
+                    _width = $(this).width();
+                }
             });
         </script>
         <?= @$js ?>

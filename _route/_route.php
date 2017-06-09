@@ -5,4 +5,5 @@ return [
     LOGIN_PATH => "login",
     '/manage-system' => "manageSystem",
     '/logout' => "logout",
+    '/account' => "account",
 ];

@@ -40,10 +40,6 @@ $insertForm = $_SESSION['user']->canInsert() ?
 <tr><td colspan='2'><button type='submit'>Add user</button></td></tr>
 </table></fieldset></form>" : '';
 
-$nav = <<<"NAV"
-<a href="/human-resource/">Human Resource</a>
-NAV;
-
 $section = <<<"SECTION"
 <div id="user" class="task">
     <div class="title">Users</div>

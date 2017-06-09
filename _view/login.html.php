@@ -4,7 +4,8 @@ $section = <<<"SECTION"
 <form id="login" method="post">
     <div>
         <label for="username">Username</label>
-        <input type="text" class="_input" id="username" name="username" placeholder="Username" required autofocus>
+        <input type="text" class="_input" id="username" name="username" placeholder="Username" 
+            required autofocus autocorrect="off" autocapitalize="off" spellcheck="false">
     </div>
     <div>
         <label for="password">Password</label>

@@ -6,8 +6,6 @@ use PKEM\Controller\Route;
 
 class Logic {
 
-    const METHOD_SUFFIX = 'Logic';
-
     protected $pageName;
     protected $data;
 
@@ -17,8 +15,7 @@ class Logic {
     }
 
     private function generateData() {
-        $gd = $this->pageName . self::METHOD_SUFFIX;
-        return $this->{$gd}();
+        return $this->{$this->pageName}();
     }
 
     public function getData() {
@@ -28,7 +25,7 @@ class Logic {
     /**
      * @Page: start
      */
-    public function startLogic() {
+    public function start() {
         return [
             'title' => 'Start',
             'page' => $this->pageName,
@@ -38,7 +35,7 @@ class Logic {
     /**
      * @Page: notFound
      */
-    public function notFoundLogic() {
+    public function notFound() {
         $_SESSION['message'] = "This page is not implemented yet!";
         return [
             'title' => 'Not Found',
@@ -49,7 +46,7 @@ class Logic {
     /**
      * @Page: manageSystem
      */
-    public function manageSystemLogic() {
+    public function manageSystem() {
         // Insert a new user:
         if (isset($_POST['username'])) {
             $user = new User($_POST['username'], $_POST['password'], $_POST['roles']);
@@ -73,7 +70,7 @@ class Logic {
     /**
      * @Page: login
      */
-    public function loginLogic() {
+    public function login() {
         if ( ! empty($_POST) ) {
             $user = new User($_POST['username'], $_POST['password']);
             if ( $user->isValid() ) {
@@ -86,6 +83,16 @@ class Logic {
 
         return [
             'title' => 'Log in',
+            'page' => $this->pageName,
+        ];
+    }
+
+    /**
+     * @Page: account
+     */
+    public function account() {
+        return [
+            'title' => 'Account',
             'page' => $this->pageName,
         ];
     }
