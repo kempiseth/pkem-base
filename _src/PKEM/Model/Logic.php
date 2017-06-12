@@ -27,7 +27,7 @@ class Logic {
      */
     public function start() {
         return [
-            'title' => 'Start',
+            'title' => 'ចាប់ផ្ដើម',
             'page' => $this->pageName,
         ];
     }
@@ -36,9 +36,9 @@ class Logic {
      * @Page: not-found
      */
     public function not_found() {
-        $_SESSION['message'] = "Page Not Found!";
+        $_SESSION['message'] = "រកមិនឃើញទំព័រ!";
         return [
-            'title' => 'Not Found',
+            'title' => 'រកមិនឃើញ',
             'page' => $this->pageName,
         ];
     }
@@ -61,7 +61,7 @@ class Logic {
         $users = $stmt->fetchAll(\PDO::FETCH_OBJ);
 
         return [
-            'title' => 'Manage System',
+            'title' => 'គ្រប់គ្រងប្រព័ន្ធ',
             'page' => $this->pageName,
             'users' => $users,
         ];
@@ -77,12 +77,12 @@ class Logic {
                 $_SESSION['userid'] = $user->getId();
                 Route::routeTo(START_PATH);
             } else {
-                $_SESSION['message'] = "Username or Password is not correct.";
+                $_SESSION['message'] = "ឈ្មោះអ្នកប្រើឬពាក្យសម្ងាត់មិនត្រឹមត្រូវ";
             }
         }
 
         return [
-            'title' => 'Log in',
+            'title' => 'ចូលប្រព័ន្ធ',
             'page' => $this->pageName,
         ];
     }
@@ -93,7 +93,7 @@ class Logic {
     public function human_resource() {
 
         return [
-            'title' => 'Human Resource',
+            'title' => 'ធនធានមនុស្ស',
             'page' => 'hr',
         ];
     }
@@ -113,12 +113,12 @@ class Logic {
                 $stmt->execute();
                 Route::routeTo(LOGOUT_PATH);
             } else {
-                $_SESSION['message'] = "Passwords entered do not match.";
+                $_SESSION['message'] = "ពាក្យសម្ងាត់ដែលបានបញ្ចូលមិនត្រូវគ្នា";
             }
         }
 
         return [
-            'title' => 'Account',
+            'title' => 'គណនី',
             'page' => $this->pageName,
         ];
     }
