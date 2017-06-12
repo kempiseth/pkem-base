@@ -3,7 +3,7 @@
 @import url('phone.css');
 
 body, input, select, textarea, button {
-    font-family: Muli, sans-serif;
+    font-family: Dangrek, Muli, sans-serif;
     border-radius: 0;
 }
 input._input {

@@ -18,14 +18,14 @@ foreach ($users as $user) {
 $usersTable = "<table class='list' id='select-user'>$usersRows</table>";
 $insertForm = $_SESSION['user']->canInsert() ? 
 "<form name='insert-form' method='post' autocomplete='off'>
-<fieldset><legend>Add a new system user</legend>
+<fieldset><legend>បន្ថែមអ្នកប្រើប្រព័ន្ធថ្មី</legend>
 <table id='insert-user'>
 <tr>
-    <td><label for='username'>Username</label></td>
+    <td><label for='username'>អ្នកប្រើប្រាស់</label></td>
     <td><input type='text' id='username' name='username' class='_input' required></td>
 </tr>
 <tr>
-    <td><label for='password'>Password</label></td>
+    <td><label for='password'>ពាក្យសម្ងាត់​</label></td>
     <td><input type='password' id='password' name='password' class='_input' required autocomplete='new-password'></td>
 </tr>
 <tr>
@@ -37,12 +37,12 @@ $insertForm = $_SESSION['user']->canInsert() ?
         <label><input type='checkbox' name='roles[]' value='delete'> Delete</label>
     </td>
 </tr>
-<tr><td colspan='2'><button type='submit'>Add user</button></td></tr>
+<tr><td colspan='2'><button type='submit'>បន្ថែមអ្នកប្រើ</button></td></tr>
 </table></fieldset></form>" : '';
 
 $section = <<<"SECTION"
 <div id="user" class="task">
-    <div class="title">Users</div>
+    <div class="title">អ្នកប្រើប្រាស់</div>
     <div class="content">
         $usersTable
         $insertForm

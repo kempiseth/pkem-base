@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 
         <title><?= $title.' - '.SITE_NAME ?></title>
+        <link href="https://fonts.googleapis.com/css?family=Dangrek&amp;subset=khmer" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
         <link href="/static/css/app.css" rel="stylesheet">
         <link href="/static/css/main.css" rel="stylesheet">
@@ -14,25 +15,25 @@
     <body page="<?= @$page ?>">
         <div class="wrapper">
             <header>
-                <span class="menu-icon"> &#9776; Menu </span>
+                <span class="menu-icon"> &#9776; ម៉ឺនុយ </span>
             </header>
             <nav id="nav-main">
                 <!-- Shown on all pages -->
-                <a href="/">Home</a>
-                <a href="/human-resource">Human Resource</a>
+                <a href="/">ទំព័រដើម</a>
+                <a href="/human-resource">ធនធានមនុស្ស</a>
 
                 <!-- Page specific navs -->
                 <?= @$nav ?>
 
                 <!-- Shown on system pages -->
                 <?php if(@$_SESSION['isSuperUser']): ?>
-                    <a href="/manage-system">Manage System</a>
+                    <a href="/manage-system">គ្រប់គ្រងប្រព័ន្ធ</a>
                 <?php endif; ?>
 
                 <!-- Account related navs -->
                 <?php if(isset($_SESSION['userid'])): ?>
-                    <a id="account" href="/account">Account</a>
-                    <a id="logout" href="/logout">Log out</a>
+                    <a id="account" href="/account">គណនី</a>
+                    <a id="logout" href="/logout">ចាកចេញ</a>
                 <?php endif; ?>
             </nav>
             <main class="group">
@@ -50,8 +51,8 @@
                 </div>
             </main>
             <footer>
-                <div id="copyright" title="Author: Piseth Kem [017 228 500]">
-                    &copy; <?php echo date('Y') ?> TLN. All rights reserved.
+                <div id="copyright" title="Author: កែម ពិសិដ្ឋ [017 228 500]">
+                    &copy; <?php echo date('Y') ?> TLN - រក្សារសិទ្ធគ្រប់យ៉ាង
                 </div>
             </footer>
         </div>
