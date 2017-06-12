@@ -6,10 +6,10 @@ use PKEM\Model\Action;
 
 class Page {
 
-    const NOT_FOUND = 'notFound';
+    const NOT_FOUND = 'not_found';
 
     protected $superPages = [
-        'manageSystem',
+        'manage_system',
     ];
 
     protected $name;

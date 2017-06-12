@@ -33,10 +33,10 @@ class Logic {
     }
 
     /**
-     * @Page: notFound
+     * @Page: not-found
      */
-    public function notFound() {
-        $_SESSION['message'] = "This page is not implemented yet!";
+    public function not_found() {
+        $_SESSION['message'] = "Page Not Found!";
         return [
             'title' => 'Not Found',
             'page' => $this->pageName,
@@ -44,9 +44,9 @@ class Logic {
     }
 
     /**
-     * @Page: manageSystem
+     * @Page: manage-system
      */
-    public function manageSystem() {
+    public function manage_system() {
         // Insert a new user:
         if (isset($_POST['username'])) {
             $user = new User($_POST['username'], $_POST['password'], $_POST['roles']);
@@ -84,6 +84,17 @@ class Logic {
         return [
             'title' => 'Log in',
             'page' => $this->pageName,
+        ];
+    }
+
+    /**
+     * @Page: human-resource
+     */
+    public function human_resource() {
+
+        return [
+            'title' => 'Human Resource',
+            'page' => 'hr',
         ];
     }
 
