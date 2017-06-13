@@ -20,7 +20,6 @@
             <nav id="nav-main">
                 <!-- Shown on all pages -->
                 <a href="/">ទំព័រដើម</a>
-                <a href="/human-resource">ធនធានមនុស្ស</a>
 
                 <!-- Page specific navs -->
                 <?= @$nav ?>
@@ -52,7 +51,7 @@
             </main>
             <footer>
                 <div id="copyright" title="Author: កែម ពិសិដ្ឋ [017 228 500]">
-                    &copy; <?php echo date('Y') ?> TLN - រក្សារសិទ្ធគ្រប់យ៉ាង
+                    &copy; <?php echo date('Y').' '.SITE_NAME ?> - រក្សារសិទ្ធគ្រប់យ៉ាង
                 </div>
             </footer>
         </div>

@@ -88,17 +88,6 @@ class Logic {
     }
 
     /**
-     * @Page: human-resource
-     */
-    public function human_resource() {
-
-        return [
-            'title' => 'ធនធានមនុស្ស',
-            'page' => 'hr',
-        ];
-    }
-
-    /**
      * @Page: account
      */
     public function account() {

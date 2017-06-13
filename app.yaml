@@ -26,9 +26,9 @@ handlers:
 
 # [START env_vars]
 env_variables:
-  GCS_BUCKET_NAME: "tln-construction.appspot.com"
-  MYSQL_DSN: mysql:unix_socket=/cloudsql/tln-construction:asia-east1:tln-construction;dbname=tln
-  MYSQL_USER: tln
+  GCS_BUCKET_NAME: "pkem-base.appspot.com"
+  MYSQL_DSN: mysql:unix_socket=/cloudsql/tln-construction:asia-east1:tln-construction;dbname=base
+  MYSQL_USER: base
   MYSQL_PASSWORD: 'Ad3!N'
 # [END env_vars]
 

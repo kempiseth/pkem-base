@@ -10,7 +10,8 @@ $_route = require_once __DIR__ . '/_route/_route.php';
 use PKEM\Model\Security;
 use PKEM\Controller\Route;
 
-$security = new Security();
+if (NEED_LOGIN)
+    $security = new Security();
 
 $route = new Route($_route);
 $route->renderPage();

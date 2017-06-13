@@ -1,5 +1,5 @@
 {
-    "name": "piseth-kem/tln",
+    "name": "piseth-kem/base",
     "autoload": {
         "psr-0": {
             "": "_src/"

@@ -36,7 +36,7 @@ class Security {
         $stmt = $dbh->prepare($sql);
         $stmt->setFetchMode(PDO::FETCH_INTO, $user);
         $stmt->execute(array(':id' => $this->userid));
-    
+
         $stmt->fetch();
         $user->roles = json_decode($user->roles);
         return $user;
