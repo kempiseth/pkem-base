@@ -42,15 +42,17 @@
                         <?= @$section ?>
                     </section>
                     <article>
+                        <?= @$article ?>
                     </article>
                 </div>
                 <div id="main-right">
                     <aside>
+                        <?= @$aside ?>
                     </aside>
                 </div>
             </main>
             <footer>
-                <div id="copyright" title="Author: កែម ពិសិដ្ឋ [017 228 500]">
+                <div id="copyright">
                     &copy; <?php echo date('Y').' '.SITE_NAME ?> - រក្សារសិទ្ធគ្រប់យ៉ាង
                 </div>
             </footer>

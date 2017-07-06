@@ -22,7 +22,7 @@ handlers:
 
 - url: /.*
   script: index.php
-  secure: always
+#  secure: always
 
 # [START env_vars]
 env_variables:

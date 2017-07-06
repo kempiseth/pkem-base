@@ -8,4 +8,3 @@ $_mysql = [
     'user' => 'base',
     'pass' => 'Ad3!N'
 ];
-
